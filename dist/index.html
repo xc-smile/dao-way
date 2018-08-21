@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>到位</title><link rel="stylesheet" href="./css/index.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css"></head><body><header><div class="header-content"><div class="logo"><a class="logo-img" href="javascript:;"><img src="images/logo.png" alt=""></a></div><ul class="header-list"><li class="header-item address"><a href="javascript:;"><img src="images/citypoint.png" alt=""> <span class="city">深圳</span> <span class="switch-city">切换城市</span></a></li><li class="header-item on"><a href="javascript:;">首页</a></li><li class="header-item"><a href="javascript:;">到位APP</a></li><li class="header-item"><a href="facilitator.html">服务商</a></li><li class="header-item"><a href="javascript:;">商家入驻</a></li><li class="header-item"><a href="javascript:;">关于我们</a></li><li class="header-item shop-login"><a href="javascript:;"><span>商家登陆</span></a></li></ul></div></header><div class="main"><div class="slide-show"><div class="swiper-container"><div class="swiper-wrapper"><div class="swiper-slide"><img src="./images/banner1.jpg" alt=""></div><div class="swiper-slide"><img src="./images/banner2.jpg" alt=""></div><div class="swiper-slide"><img src="./images/banner3.jpg" alt=""></div></div><div class="swiper-pagination"></div></div><div class="banner-nav"><ul class="service-scope"></ul></div></div><div class="service-box"><ul class="service-classify"></ul></div><div class="promise"><h3>到位 <span>服务</span> 保障</h3><p>到位平台担保交易安全，交易未成功100%退款</p><ul><li><img src="images/anquan.jpg" alt=""> 优选服务</li><li><img src="images/anquan.jpg" alt=""> 全程保障</li><li><img src="images/anquan.jpg" alt=""> 安全无忧</li></ul></div><div class="hot-city"><h3>热门城市</h3><ul class="city-list"></ul></div><div class="partners"><div class="partner"><h3>合作伙伴</h3><ul><li><a href="javascript:;"><img src="images/partner01.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner02.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner03.png" alt=""></a></li><li><a href="javascript:;"><img src="images/partner04.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner05.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner06.png" alt=""></a></li><li><a href="javascript:;"><img src="images/partner07.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner08.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner09.jpg" alt=""></a></li></ul><ul><li><a href="javascript:;"><img src="images/partner10.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner11.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner12.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner13.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner14.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner15.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner16.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner17.jpg" alt=""></a></li><li><a href="javascript:;"><img src="images/partner18.jpg" alt=""></a></li></ul><div class="beian">©2015 版权所有 到位 daoway.com 京ICP备15001471号-1 北京邻家科技有限公司</div></div></div></div><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="js/template.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script><script src="js/dist.min.js"></script><script id="banner-list" type="text/html">{{each data as value i}}
+  <li class="scope-list">
+    <a href="javascript:;">
+      {{value.serviceIndex}}
+      <div class="right"></div>
+    </a>
+    <ul class="service-list">
+      {{each value.serviceType as value i}}
+      <li><a href="javascript:;">{{value}}</a></li>
+      {{/each}}
+    </ul>
+  </li>
+  {{/each}}</script><script id="serviceList2" type="text/html">{{each data as value i}}
+  <li class="service-shops">
+    <div class="shops-container">
+      <h3>{{value.serviceIndex}}</h3>
+      <ul class="service-item">
+        {{each value.serviceType as value i}}
+        <li><a href="javascript:;">{{value}}</a></li>
+        {{/each}}
+      </ul>
+      <a class="more" href="javascript:;">更多服务></a>
+      <ul class="shops">
+        {{each value.shopList as value i}}
+        <li class="shop-item">
+          <a href="javascript:;">
+            <div class="image">
+              <img src={{value.imgUrl}} alt="">
+            </div>
+            <div class="info">
+              <span class="title">{{value.serviceName}}</span>
+              <p>
+                {{value.description}}
+              </p>
+              <div class="price-details">
+                <div>
+                  <span class="price">{{value.price}}</span>
+                  元/4小时
+                </div>
+                <span class="details">查看详情</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+      <div class="more-shops">
+        {{each value.elseList as value i}}
+        <a href="javascript:;">{{value}}</a>
+        {{/each}}
+      </div>
+    </div>
+  </li>
+  {{/each}}</script><script id="hot-city" type="text/html">{{each data as value i}}
+  <li><a href="javascript:;">{{value}}</a></li>
+  {{/each}}</script><script>$(document).ready(function () {
+    var mySwiper = new Swiper('.swiper-container', {
+      loop: true,
+      speed: 1000,
+      autoplay: {
+        delay: 3000
+      },
+      click: true,
+      // 如果需要分页器
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      effect: 'fade',
+      fade: {
+        crossFade: false,
+      }
+    })
+  })
+  $(function () {
+    $.get('http://localhost:3000/index', function (data) {
+      let tpl1 = template('banner-list', {data})
+      $('.service-scope').append(tpl1);
+      let obj1 = {data}
+      let tpl2 = template('serviceList2', obj1)
+      $('.service-classify').append(tpl2)
+    })
+    $.get('http://localhost:3000/hotCity', function (data){
+      let tpl3 = template('hot-city', {data})
+      $('.city-list').append(tpl3)
+    })
+  })</script></body></html>
