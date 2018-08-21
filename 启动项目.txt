@@ -1,0 +1,8 @@
+根目录： 
+	json-server --watch db.json
+	gulp watch
+
+数据源： bd.json文件
+
+
+
